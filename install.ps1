@@ -56,3 +56,5 @@ foreach ($file in $dllFiles) {
 }
 
 Write-Host "[DONE] Script complete."
+Write-Host "Press Enter to exit..."
+[void][System.Console]::ReadLine()
