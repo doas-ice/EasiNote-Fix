@@ -11,7 +11,7 @@ $repo        = "EasiNote-Fix"
 $branch      = "main"
 $apiUrl      = "https://api.github.com/repos/$owner/$repo/contents?ref=$branch"
 $rawBaseUrl  = "https://raw.githubusercontent.com/$owner/$repo/$branch"
-$targetPath  = "C:\Easinote-fix\Note\Main"
+$targetPath  = "C:\Program Files (x86)\ShiRui\Note\Main"
 
 Write-Host "[DEBUG] API URL: $apiUrl"
 Write-Host "[DEBUG] Raw base URL: $rawBaseUrl"
@@ -49,9 +49,15 @@ $dllFiles | ForEach-Object { Write-Host "  - $_" }
 foreach ($file in $dllFiles) {
     $fileUrl  = "$rawBaseUrl/$file"
     $destFile = Join-Path $targetPath $file
+
+    if (Test-Path $destFile) {
+        Write-Host "[INFO] Overwriting existing file: $destFile"
+        Remove-Item $destFile -Force
+    }
+
     Write-Host "[INFO] Downloading $file from $fileUrl..."
     try {
-        Invoke-WebRequest -Uri $fileUrl -OutFile $destFile -UseBasicParsing
+        Invoke-WebRequest -Uri $fileUrl -OutFile $destFile -UseBasicParsing -ErrorAction Stop
         if (Test-Path $destFile) {
             Write-Host "[SUCCESS] Saved to $destFile"
         } else {
