@@ -18,7 +18,11 @@ The modified files are sourced from this repository and automatically copied to 
 
 ## 🚀 Automatic Installation
 
-Run the following command in **PowerShell (Admin)** to automatically download and apply the patch:
+Before running the patch:
+
+> **⚠️ Close the Note 3 program completely before applying the patch ⚠️**
+
+Then, run the following command in **PowerShell (Admin)** to download and apply the patch:
 
 ```powershell
 irm 'https://raw.githubusercontent.com/doas-ice/EasiNote-Fix/main/install.ps1' | iex
@@ -35,6 +39,26 @@ The patched files are copied to:
 ```
 C:\Program Files (x86)\ShiRui\Note\Main
 ```
+
+---
+
+## 📸 Results
+
+### Before – Persistent Time Display Always Visible
+
+<img alt="image" src="https://github.com/user-attachments/assets/1e6c5d44-ce74-41a9-bc06-df1d23cd5345" />
+
+---
+
+### After – Time Display Hidden
+
+<img alt="image" src="https://github.com/user-attachments/assets/53e4ff21-317c-4f5e-b263-5c229262dc3f" />
+
+---
+
+### New Settings Entry – Toggle for Persistent Time
+
+<img alt="image" src="https://github.com/user-attachments/assets/99e94544-4f29-43bd-a7dc-28c998643a85" />
 
 ---
 
